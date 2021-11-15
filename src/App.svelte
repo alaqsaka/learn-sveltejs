@@ -17,6 +17,13 @@
 		beltColour = e.target.value
 	}
 
+	// Loops
+	let people = [
+		{ name: 'Yoshi', colorOfBelt: 'Black', age: 25, id: 1 },
+		{ name: 'Mario', colorOfBelt: 'Orange', age: 45, id: 2 },
+		{ name: 'Luigi', colorOfBelt: 'Brown', age: 35, id: 3 },
+	];
+
 </script>
 
 <main>
@@ -24,6 +31,19 @@
 	<input type="text" bind:value={firstName}>
 	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltColour}>
+
+	<h1>Learning LOOPS!</h1>
+	<p>Section for practicing about loops</p>
+
+	{#each people as person (person.id)}
+		<div>
+			<h4>{person.name}</h4>
+			<p>{person.age} years old, {person.colorOfBelt} belt.</p>
+		</div>
+	<!-- Misalkan engga ada element di dalam array -->
+	{:else}
+		<p>There are no people to show</p>
+	{/each}
 </main>
 <style>
 	main {
@@ -36,7 +56,7 @@
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 3em;
 		font-weight: 100;
 	}
 
